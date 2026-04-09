@@ -1,0 +1,44 @@
+{
+  "name": "cards-against-developers",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "generate:deck": "tsx scripts/generate-deck.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dev": "APP_BASE_URL=/ vite",
+    "build": "npm run generate:deck && npm run typecheck && vite build && tsx scripts/write-singleplayer-entry.ts",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "check": "npm run format:check && npm run lint && npm run test:unit && npm run build && npm run test:e2e",
+    "serve:test": "tsx scripts/serve-static.ts --root=dist --port=4173",
+    "playwright:install": "playwright install chromium",
+    "test:unit": "node --import tsx --test src/**/*.test.ts",
+    "test:unit:fuzz": "node --import tsx --test src/game/game.fuzz.test.ts src/network/handlers.fuzz.test.ts",
+    "test:unit:fuzz:long": "GAME_FUZZ_RUNS=800 GAME_FUZZ_DISCONNECT_RUNS=1000 HANDLERS_FUZZ_RUNS=600 FAST_CHECK_VERBOSE=1 node --import tsx --test src/game/game.fuzz.test.ts src/network/handlers.fuzz.test.ts",
+    "test:e2e": "playwright test",
+    "test:e2e:update": "playwright test --update-snapshots"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.59.1",
+    "@types/node": "25.5.2",
+    "eslint": "10.2.0",
+    "fast-check": "^4.6.0",
+    "globals": "17.4.0",
+    "prettier": "3.8.1",
+    "sharp": "^0.34.5",
+    "tsx": "4.21.0",
+    "typescript": "6.0.2",
+    "typescript-eslint": "8.58.1",
+    "vite": "8.0.8",
+    "vite-plugin-solid": "2.11.12"
+  },
+  "dependencies": {
+    "@solidjs/router": "^0.16.1",
+    "peerjs": "^1.5.5",
+    "solid-js": "1.9.12"
+  }
+}
