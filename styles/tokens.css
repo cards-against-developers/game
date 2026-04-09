@@ -1,0 +1,26 @@
+:root {
+  --paper: #ffffff;
+  --paper-panel: rgba(255, 255, 255, 0.98);
+  --paper-overlay: rgba(255, 255, 255, 0.96);
+  --paper-shadow: rgba(0, 0, 0, 0.18);
+  --ink: #000000;
+  --ink-soft: rgba(0, 0, 0, 0.72);
+  --surface: #1a1a1a;
+  --surface-alt: #262626;
+  --muted: #6f6a62;
+  --line: rgba(0, 0, 0, 0.14);
+  --line-soft: rgba(0, 0, 0, 0.1);
+  --line-strong: rgba(0, 0, 0, 0.18);
+  --accent: #fec514;
+  --danger: #b94a2b;
+  --success: #0d8f72;
+  --table-glow: rgba(255, 255, 255, 0.04);
+  --radius: 18px;
+  --card-radius: 16px;
+  --card-shadow: 0 18px 34px rgba(0, 0, 0, 0.22);
+  --font-ui: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --card-ratio: 5 / 7;
+  --card-width-lg: min(212px, 30vw);
+  --card-width-ring: clamp(150px, 13vw, 178px);
+  --card-width-hand: clamp(176px, 17vw, 214px);
+}
